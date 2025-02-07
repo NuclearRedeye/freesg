@@ -8,7 +8,9 @@ services:
     environment:
       POSTGRES_USER: username
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: default_database
+      POSTGRES_DB: ${COMPOSE_PROJECT_NAME}
+    volumes:
+      - './.postgres:/docker-entrypoint-initdb.d:ro'
 
   pgadmin:
     image: dpage/pgadmin4:9
