@@ -6,9 +6,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: ${COMPOSE_PROJECT_NAME}
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
     volumes:
       - './.postgres:/docker-entrypoint-initdb.d:ro'
 
