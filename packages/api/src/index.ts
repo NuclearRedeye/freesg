@@ -1,10 +1,10 @@
 import express from 'express';
+import cors from 'cors';
 
 // Clients
 import { check as checkDB } from './clients/postgres.ts';
 
 // Middlewares
-import { cors } from 'cors';
 import { logger } from './middleware/logger.ts';
 
 // Routers
