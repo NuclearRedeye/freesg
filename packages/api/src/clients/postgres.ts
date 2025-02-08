@@ -9,7 +9,7 @@ const pool = new Pool({
   database: process.env.POSTGRES_DB || 'postgres',
 })
  
-export async function query(text: string, params: string[]) {
+export async function query(text: string, params: string[] = []) {
   return await pool.query(text, params);
 }
  

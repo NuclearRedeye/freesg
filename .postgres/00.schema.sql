@@ -7,4 +7,3 @@ CREATE TABLE IF NOT EXISTS freesg.metric (
   created_at TIMESTAMP default CURRENT_TIMESTAMP,
   updated_at TIMESTAMP default CURRENT_TIMESTAMP
 );
-
