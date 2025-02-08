@@ -8,9 +8,6 @@
     "dev": "dotenvx run --env-file=../../.env -- node --watch --experimental-strip-types ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.35.0",
     "@types/express": "^5.0.0",
