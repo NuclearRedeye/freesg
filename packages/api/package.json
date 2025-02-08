@@ -12,12 +12,13 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@dotenvx/dotenvx": "^1.35.0",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.1",
-    "@types/pg": "^8.11.11",
-    "@dotenvx/dotenvx": "^1.35.0"
+    "@types/pg": "^8.11.11"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.2",
     "pg": "^8.13.1"
   }
