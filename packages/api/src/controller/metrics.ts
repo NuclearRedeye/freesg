@@ -1,6 +1,6 @@
 import type { Metric } from '../../../types/index.ts';
 
-import { query } from '../clients/postgres.ts';
+import { query } from '../services/postgres.ts';
 
 export async function getAll(): Promise<Metric[]> {
   const retVal: Metric[] = [];

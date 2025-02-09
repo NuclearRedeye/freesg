@@ -2,13 +2,14 @@ import express from 'express';
 import cors from 'cors';
 
 // Clients
-import { check as checkDB } from './clients/postgres.ts';
+import { check as checkDB } from './services/postgres.ts';
 
 // Middlewares
 import { logger } from './middleware/logger.ts';
 
 // Routers
-import { default as metricsRouter } from './routers/metrics-router.ts';
+import { default as metricsRouter } from './routers/metrics.router.ts';
+import { default as reportsRouter } from './routers/reports.router.ts';
 
 const app = express();
 const port = 3000;
@@ -17,6 +18,7 @@ app.use(cors());
 app.use(logger);
 
 app.use('/metrics', metricsRouter);
+app.use('/reports', reportsRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

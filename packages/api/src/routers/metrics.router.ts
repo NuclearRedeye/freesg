@@ -1,18 +1,10 @@
 import { Router } from "express";
 
+import { http404, http501 } from "../responses.ts";
+
 import * as metricsController from "../controller/metrics.ts";
 
 const metricsRouter = Router();
-
-const http404 = {
-  status: 404,
-  message: 'Not found'
-}
-
-const http501 = {
-  status: 501,
-  message: 'Not Implemented'
-}
 
 metricsRouter.get('/', async (req, res) => {
   const metrics = await metricsController.getAll();
