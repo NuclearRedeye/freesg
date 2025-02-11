@@ -1,6 +1,6 @@
 import type { Metric } from '../../../types/index.ts';
 
-import * as metricsService from '../services/metric.ts';
+import * as metricsService from '../services/metric.service.ts';
 
 export async function getAll(req, res): Promise<void> {
   const metrics = await metricsService.getAll();

@@ -7,7 +7,7 @@ import { http404 } from './responses.ts';
 import { check as checkDB } from './services/postgres.ts';
 
 // Middlewares
-import { logger } from './middleware/logger.ts';
+import { logger } from './middlewares/logger.ts';
 
 // Routers
 import { default as metricsRouter } from './routers/metrics.router.ts';

@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import * as defaultController from "../controller/defaults.ts";
-import * as metricsController from "../controller/metrics.ts";
+import * as defaultController from "../controllers/defaults.controller.ts";
+import * as metricsController from "../controllers/metrics.controller.ts";
 
 const metricsRouter = Router();
 
