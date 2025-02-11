@@ -1,36 +1,31 @@
 import type { Metric } from '../../../types/index.ts';
 
-import { query } from '../services/postgres.ts';
+import * as metricsService from '../services/metric.ts';
 
-export async function getAll(): Promise<Metric[]> {
-  const retVal: Metric[] = [];
-  const queryString = 'SELECT * FROM metric';
-  const metrics = await query(queryString);
-  for (const metric of metrics.rows) {
-    retVal.push({
-      id: metric.id,
-      name: metric.name,
-      description: metric.description,
-      createdAt: metric.created_at,
-      updatedAt: metric.updated_at,
-    });
-  }
-  return retVal;
+export async function getAll(req, res): Promise<void> {
+  const metrics = await metricsService.getAll();
+  res.status(200).json(metrics);
 }
 
-export async function getById(id: string): Promise<Metric | null> {
-  const queryString = 'SELECT * FROM metric WHERE id = $1';
-  const queryValues = [id];
-  const metric = await query(queryString, queryValues);
-  if (metric.rows.length === 0) {
-    return null;
+export async function getOne(req, res): Promise<void> {
+  const id = req.params.metricId;
+  const metric = await metricsService.getOne(id);
+  if (metric === null) {
+    res.status(404).json(metric);
   } else {
-    return {
-      id: metric.rows[0].id,
-      name: metric.rows[0].name,
-      description: metric.rows[0].description,
-      createdAt: metric.rows[0].created_at,
-      updatedAt: metric.rows[0].updated_at,
-    };
+    res.status(200).json(metric);
+  }
+}
+
+export async function createOne(req, res): Promise<void> {
+  const metricData: Metric = {
+    name: req.body.name,
+    description: req.body.description,
+  }
+  const metric = await metricsService.create(metricData);
+  if (metric === null) {
+    res.status(400).json(metric);
+  } else {
+    res.status(200).json(metric);
   }
 }

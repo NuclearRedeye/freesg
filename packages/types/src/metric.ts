@@ -1,7 +1,7 @@
 export type Metric = {
-  id: string;
+  id?: string;
   name: string;
   description: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 };
