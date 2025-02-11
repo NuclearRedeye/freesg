@@ -4,7 +4,7 @@ import cors from 'cors';
 import { http404 } from './responses.ts';
 
 // Clients
-import { check as checkDB } from './services/postgres.ts';
+import { check as checkDB } from './clients/postgres.client.ts';
 
 // Middlewares
 import { logger } from './middlewares/logger.ts';
